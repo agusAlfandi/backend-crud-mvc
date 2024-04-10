@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero By Id</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- DaisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.1/dist/full.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="container mx-auto mt-5">
+        <h1 class="text-3xl font-bold mb-4"><%= data.title %></h1>
+        <div class="overflow-x-auto mx-5 p-4 bg-gray-500 mt-4 rounded-md">
+            <table class="table w-full">
+                <!-- Table Head -->
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Role</th>
+                    </tr>
+                </thead>
+                <!-- Table Body -->
+                <tbody>
+                        <tr class="hover:bg-gray-100">
+                            <td><%= data.data[0].id %></td>
+                            <td><%= data.data[0].name %></td>
+                            <td><%= data.data[0].role %></td>
+                        </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

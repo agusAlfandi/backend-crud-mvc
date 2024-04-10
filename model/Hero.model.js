@@ -7,7 +7,7 @@ exports.getData = (res)=> {
         if (err) return console.log(err, 'get data failed')
 
         const datas = {
-            title: "DATA HERO BY ID",
+            title: "LIST HERO",
             data: JSON.parse(JSON.stringify(result))
         }
         res.render('index', {datas})
@@ -17,15 +17,23 @@ exports.getData = (res)=> {
 
 exports.getHeroByID = (req, res) => {
     const {id} = req.params;
-    const sql = `select * from hero where id = '${id}'`
 
-    db.query(sql, (err, result) => {
-        if (err) return console.log(err, "get data by id failed")
-
-        const data = JSON.parse(JSON.stringify(result))
-        // res.render('index', {data})
-        // res.end()
-        console.log(data)
-    })
+    try {
+        const sql = `select * from hero where id = '${id}'`
+    
+        db.query(sql, (err, result) => {
+            if (err) return console.log(err, "get data by id failed")
+    
+            const data = {
+                title: "DATA HERO BY ID",
+                data: JSON.parse(JSON.stringify(result))
+            }
+            // console.log(data.data[0].id)
+            res.render('heroDetail', {data})
+            res.end()
+        })
+    } catch (error) {
+        res.send(error)
+    }
 }
 
