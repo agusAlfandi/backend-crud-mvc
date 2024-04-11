@@ -10,6 +10,10 @@ router.get('/:id', (req, res) => {
     Hero.getHeroByID(req, res)
 })
 
+router.post('/update', (req, res) => {
+    Hero.updateHeroByID(req, res)
+})
+
 module.exports = router
 
 // Agent pid 8468

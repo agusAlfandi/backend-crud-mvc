@@ -6,6 +6,7 @@ const bodyParser = require("body-parser")
 const router_user = require("./controller/hero.controller")
 
 app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.json())
 app.set("view engine", "ejs")
 app.set("views", "view")
 

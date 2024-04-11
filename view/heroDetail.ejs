@@ -10,27 +10,15 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.1/dist/full.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <div class="container mx-auto mt-5">
-        <h1 class="text-3xl font-bold mb-4"><%= data.title %></h1>
-        <div class="overflow-x-auto mx-5 p-4 bg-gray-500 mt-4 rounded-md">
-            <table class="table w-full">
-                <!-- Table Head -->
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Name</th>
-                        <th>Role</th>
-                    </tr>
-                </thead>
-                <!-- Table Body -->
-                <tbody>
-                        <tr class="hover:bg-gray-100">
-                            <td><%= data.data[0].id %></td>
-                            <td><%= data.data[0].name %></td>
-                            <td><%= data.data[0].role %></td>
-                        </tr>
-                </tbody>
-            </table>
+    <div class="flex items-center justify-center min-h-screen">
+        <div class="text-center">
+            <h1 class="mb-4"><%= data.title %></h1>
+            <form class="flex flex-col items-center gap-4" method="post" action="/user/update">
+                <input type="text" name="name" hidden value="<%= data.data[0].id %>" class="input input-bordered w-full max-w-xs" />
+                <input type="text" name="name" value="<%= data.data[0].name %>" class="input input-bordered w-full max-w-xs" />
+                <input type="text" name="role" value="<%= data.data[0].role %>" class="input input-bordered w-full max-w-xs" />
+                <button type="submit" value="update" class="btn btn-primary">Update</button>
+            </form>
         </div>
     </div>
 </body>

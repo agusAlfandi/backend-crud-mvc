@@ -28,12 +28,27 @@ exports.getHeroByID = (req, res) => {
                 title: "DATA HERO BY ID",
                 data: JSON.parse(JSON.stringify(result))
             }
-            // console.log(data.data[0].id)
             res.render('heroDetail', {data})
             res.end()
         })
     } catch (error) {
         res.send(error)
     }
+}
+
+exports.updateHeroByID = (req, res) => {
+    const {id} = req.params
+    const {name, role} = req.body
+
+    const sql = `update hero set name = '${name}', role = '${role}' where id = '${id}'`
+
+    db.query(sql, (err, result) => {
+        if (err) return console.log(err, "update data by id failed")
+
+        console.log(result)
+        res.redirect('/index')
+        res.end()
+    })
+
 }
 

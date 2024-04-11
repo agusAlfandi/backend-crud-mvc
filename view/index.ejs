@@ -20,15 +20,17 @@
                         <th>Id</th>
                         <th>Name</th>
                         <th>Role</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <!-- Table Body -->
                 <tbody>
                     <% datas.data.forEach((item, index) => { %>
-                        <tr class="hover:bg-gray-100">
-                            <td><%= index + 1 %></td>
-                            <td><%= item.name %></td>
-                            <td><%= item.role %></td>
+                        <tr class="hover">
+                                <td><%= index + 1 %></td>
+                                <td><%= item.name %></td>
+                                <td><%= item.role %></td>
+                                <td><a class="btn btn-outline btn-info" href="/user/<%= item.id %>">Choose</a></td>
                         </tr>
                     <% }) %>
                 </tbody>
