@@ -12,7 +12,22 @@
 <body>
     <div class="container mx-auto mt-5">
         <h1 class="text-3xl font-bold mb-4"><%= datas.title %></h1>
+        <!-- add hero -->
+        <div class="collapse bg-base-200">
+            <input type="checkbox" /> 
+            <div class="collapse-title text-xl font-medium text-center" >
+              Tambah Hero Baru
+            </div>
+            <div class="collapse-content"> 
+                <form action="/user/update" method="post" class="flex flex-col items-center gap-4" >
+                    <input type="text" name="name" placeholder="Tulis nama" class="input input-bordered w-full max-w-xs" />
+                    <input type="text" name="role" placeholder="Tulis role" ="input input-bordered w-full max-w-xs" />
+                    <button type="submit" value="update" class="btn btn-primary">Update</button>
+                </form>
+            </div>
+          </div>
         <div class="overflow-x-auto mx-5 p-4 bg-gray-500 mt-4 rounded-md">
+
             <table class="table w-full">
                 <!-- Table Head -->
                 <thead>

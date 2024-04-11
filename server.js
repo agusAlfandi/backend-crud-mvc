@@ -1,12 +1,12 @@
-const expres = require("express")
-const app = expres()
+const express = require("express")
+const app = express()
 const port = 1317
 
 const bodyParser = require("body-parser")
 const router_user = require("./controller/hero.controller")
 
 app.use(bodyParser.urlencoded({extended: false}))
-app.use(bodyParser.json())
+app.use(express.json())
 app.set("view engine", "ejs")
 app.set("views", "view")
 

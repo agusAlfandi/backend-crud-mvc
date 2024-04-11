@@ -14,4 +14,8 @@ router.post('/update', (req, res) => {
     Hero.updateHeroByID(req, res)
 })
 
+router.post('/add', (req, res) => {
+    Hero.addHero(req, res)
+})
+
 module.exports = router

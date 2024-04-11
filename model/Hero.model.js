@@ -51,3 +51,16 @@ exports.updateHeroByID = (req, res) => {
     })
 }
 
+exports.addHero = (req, res) => {
+     const {name, role} = req.body
+     const sql = `insert into hero (name, role) values ('${name}', '${role}')`
+
+     db.query(sql, (err, result) => {
+        if (err) return console.log('gagal menambah data')
+        
+        console.log(result)
+        res.redirect('/user')
+        res.end()
+     })
+}
+
