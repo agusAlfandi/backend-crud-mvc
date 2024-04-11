@@ -12,7 +12,7 @@ app.set("views", "view")
 
 app.use("/user", router_user)
 
-app.get("/", (req, res) => {
+app.use("/", (req, res) => {
     res.send({
        status: "ok",
        api_version: ""

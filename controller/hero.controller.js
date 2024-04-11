@@ -15,5 +15,3 @@ router.post('/update', (req, res) => {
 })
 
 module.exports = router
-
-// Agent pid 8468

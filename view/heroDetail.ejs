@@ -13,8 +13,8 @@
     <div class="flex items-center justify-center min-h-screen">
         <div class="text-center">
             <h1 class="mb-4"><%= data.title %></h1>
-            <form class="flex flex-col items-center gap-4" method="post" action="/user/update">
-                <input type="text" name="name" hidden value="<%= data.data[0].id %>" class="input input-bordered w-full max-w-xs" />
+            <form action="/user/update" method="post" class="flex flex-col items-center gap-4" >
+                <input type="text" name="id" hidden value="<%= data.data[0].id %>" class="input input-bordered w-full max-w-xs" />
                 <input type="text" name="name" value="<%= data.data[0].name %>" class="input input-bordered w-full max-w-xs" />
                 <input type="text" name="role" value="<%= data.data[0].role %>" class="input input-bordered w-full max-w-xs" />
                 <button type="submit" value="update" class="btn btn-primary">Update</button>

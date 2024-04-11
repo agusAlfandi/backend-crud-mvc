@@ -1,6 +1,6 @@
 const db = require('../db')
 
-exports.getData = (res)=> {
+exports.getData = (res) => {
     const sql = "select * from hero"
 
     db.query(sql, (err, result) => {
@@ -18,7 +18,7 @@ exports.getData = (res)=> {
 exports.getHeroByID = (req, res) => {
     const {id} = req.params;
 
-    try {
+   
         const sql = `select * from hero where id = '${id}'`
     
         db.query(sql, (err, result) => {
@@ -31,24 +31,23 @@ exports.getHeroByID = (req, res) => {
             res.render('heroDetail', {data})
             res.end()
         })
-    } catch (error) {
-        res.send(error)
-    }
+ 
 }
 
 exports.updateHeroByID = (req, res) => {
-    const {id} = req.params
-    const {name, role} = req.body
+    const {id, name, role} = req.body
 
-    const sql = `update hero set name = '${name}', role = '${role}' where id = '${id}'`
+    const sql = `update hero set name = ?, role = ? where id = ?`
 
-    db.query(sql, (err, result) => {
-        if (err) return console.log(err, "update data by id failed")
+    db.query(sql, [name, role, id], (err, result) => {
+        if (err) {
+            console.log(err, "update data by id failed")
+            return res.status(500).send(" kesalahan saat memperbarui data")
+        }
 
         console.log(result)
-        res.redirect('/index')
+        res.redirect('/user')
         res.end()
     })
-
 }
 
