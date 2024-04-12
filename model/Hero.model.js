@@ -64,14 +64,12 @@ exports.deleteHero = (req, res) => {
     // console.log(id)
     // res.send(id)
 
-    const sql = `delete from hero where id ='${id}'`
+    const sql = `delete from hero where id='${id}'`
     db.query(sql, (err, result) => {
         if (err) return console.log(err, "Tidak dapat menghapus data")
-        res.status(500).send("Ada kesalahan saat menghapus data")
-        
-        console.log(result)
+        // console.log(result)
         res.redirect('/user')
-        res.end()
+        // res.end()
     })
 }
 
