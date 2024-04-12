@@ -18,4 +18,8 @@ router.post('/add', (req, res) => {
     Hero.addHero(req, res)
 })
 
+router.post('/delete', (req, res) => {
+    Hero.deleteHero(req, res)
+})
+
 module.exports = router

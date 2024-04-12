@@ -17,8 +17,6 @@ exports.getData = (res) => {
 
 exports.getHeroByID = (req, res) => {
     const {id} = req.params;
-
-   
         const sql = `select * from hero where id = '${id}'`
     
         db.query(sql, (err, result) => {
@@ -44,8 +42,6 @@ exports.updateHeroByID = (req, res) => {
             console.log(err, "update data by id failed")
             return res.status(500).send(" kesalahan saat memperbarui data")
         }
-
-        console.log(result)
         res.redirect('/user')
         res.end()
     })
@@ -58,9 +54,24 @@ exports.addHero = (req, res) => {
      db.query(sql, (err, result) => {
         if (err) return console.log('gagal menambah data')
         
-        console.log(result)
         res.redirect('/user')
         res.end()
      })
+}
+
+exports.deleteHero = (req, res) => {
+    const {id} = req.body
+    // console.log(id)
+    // res.send(id)
+
+    const sql = `delete from hero where id ='${id}'`
+    db.query(sql, (err, result) => {
+        if (err) return console.log(err, "Tidak dapat menghapus data")
+        res.status(500).send("Ada kesalahan saat menghapus data")
+        
+        console.log(result)
+        res.redirect('/user')
+        res.end()
+    })
 }
 
